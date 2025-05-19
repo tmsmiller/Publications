@@ -3,6 +3,8 @@
 
 # U-rich elements drive pervasive cryptic splicing in 3’ UTR massively parallel reporter assays 
 
+Corresponding author: Anthony Mustoe - anthony.mustoe@bcm.edu
+
 Last updated: 02/18/2025
 
 ### Analysis codes (organized by figure)
@@ -58,5 +60,6 @@ Last updated: 02/18/2025
 ## Changelog
 07/30/24
   - Intial commit: add analysis codes and data files to generate all figures for publication
+    
 02/18/25
   - Update code following revision
