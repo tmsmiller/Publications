@@ -5,14 +5,14 @@
 
 Corresponding author: Anthony Mustoe - anthony.mustoe@bcm.edu
 
-Last updated: 02/18/2025
+Last updated: 05/20/2025
 
 ### Analysis codes (organized by figure)
   - `process_raw_count_to_splicing_efficiency.ipynb`
       - `Input`: raw count by categories for each reporters (ptreseq_raw_count/). See **Fig. S1D** and **Method** for a description of each category. Codes for generating raw count are available upon request.
       - `Output`: median observed splicing fraction (ptreseq_splicing_quantification/)
   - `F1_splicing_quantification.ipynb`       
-  - `F1S_splicing_reproducibility.ipynb`     
+  - `F1S_F2s_palindrome_and_splicing_reproducibility.ipynb`     
   - `F2_donor_acceptor_identification.ipynb` 
   - `F3_AU_rich_element_splicing.ipynb`      
   - `F4_modelling_splicing_impact.ipynb`     
@@ -63,3 +63,6 @@ Last updated: 02/18/2025
     
 02/18/25
   - Update code following revision
+
+05/20/25
+  - Update code following second revision
