@@ -1,4 +1,4 @@
-plasmid	copy	best_donor	donor_prob	best_acceptor	acceptor_prob
+seq_id	best_donor	donor_prob	best_acceptor	acceptor_prob
 CN1_000043	1065	0.1639072	1172	0.012685751
 CN1_000001	794	0.27063555	896	0.08856078
 CN1_000042	845	0.39418092	936	0.4165635

@@ -1,4 +1,4 @@
-plasmid	copy	best_donor	donor_prob	best_acceptor	acceptor_prob
+seq_id	best_donor	donor_prob	best_acceptor	acceptor_prob
 11_63678128_TA_alt_bash_n10T	715	0.9715912	875	0.82402056
 10_131978607_A_3-_End_alt	715	0.6268405	875	0.6092199
 11_63678128_TA_alt_bash_n1A	715	0.95755863	875	0.85157335
