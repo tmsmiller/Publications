@@ -3,7 +3,7 @@ reporter	best_category	count
 -1	RE_not_cloned	822626
 -1	unidentifiable_barcode	55473
 -1	PCR_chimera	41597
--1	palindrome	37415
+-1	RT_error	37415
 6merx1_1	PCR_chimera	253
 6merx1_1	palindrome	251
 6merx1_1	full_length	211

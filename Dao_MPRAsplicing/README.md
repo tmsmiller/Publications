@@ -5,7 +5,7 @@
 
 Corresponding author: Anthony Mustoe - anthony.mustoe@bcm.edu
 
-Last updated: 06/19/2025
+Last updated: 05/20/2025
 
 ### Analysis codes (organized by figure)
   - `process_raw_count_to_splicing_efficiency.ipynb`
@@ -66,6 +66,3 @@ Last updated: 06/19/2025
 
 05/20/25
   - Update code following second revision
-
-06/19/25
-  - Update code for final submission
