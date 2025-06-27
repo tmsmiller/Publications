@@ -5,12 +5,12 @@
 
 Corresponding author: Anthony Mustoe - anthony.mustoe@bcm.edu
 
-Last updated: 05/20/2025
+Last updated: 06/27/2025
 
 ### Analysis codes (organized by figure)
   - `process_raw_count_to_splicing_efficiency.ipynb`
-      - `Input`: raw count by categories for each reporters (ptreseq_raw_count/). See **Fig. S1D** and **Method** for a description of each category. Codes for generating raw count are available upon request.
-      - `Output`: median observed splicing fraction (ptreseq_splicing_quantification/)
+      - `Input`: raw count by categories for each reporter (`ptreseq_raw_count/`). See **Method** for a description of each category.
+      - `Output`: median observed splicing fraction (`ptreseq_splicing_quantification/`)
   - `F1_splicing_quantification.ipynb`       
   - `F1S_F2s_palindrome_and_splicing_reproducibility.ipynb`     
   - `F2_donor_acceptor_identification.ipynb` 
@@ -20,7 +20,10 @@ Last updated: 05/20/2025
   - `F5_cryptic_splicing_mpra.ipynb`        
      
 ### Data files
-  - `2023-08-04 - 12-17-54-D1000_Electropherogram.csv`: tape station electropherogram for sequencing library
+  - tape station electropherogram for sequencing library
+    - Full PTRE-seq library: `2023-08-04 - 12-17-54-D1000_Electropherogram.csv` 
+    - Full PTRE-seq library (alternative library prep method): `2025-03-16 - DNA RNA gel_Electropherogram.csv`
+    - "No spacer" library: `2020-11-16 - HELA no spacer_Electropherogram` & `2023-07-21 - DNA no spacer_Electropherogram`
   - `HELA-1_gap_sequences.txt.gz`: nucleotide sequences at boundaries of internal deletions in HeLa RNA sample
   - `single_reporter_validation_quantification.xlsx`: westernblot and RT-PCR quantification for single reporter validation
   - Maximum Entropy score of annotated human splice sites (Ensembl hg38 assembly)
@@ -53,16 +56,22 @@ Last updated: 05/20/2025
       - `fu_expression_measurements_HEK293.txt` and `fu_expression_measurements_HELA.txt`
   - Pangolin prediction for 3'UTR MPRAs (not shown in manuscript)
       - `ptreseq_pangolin_prediction.txt`
+  - Nanopore sequencing of PTRE-seq DNA library
+      - `plasmidsaurus_length_distribution.txt`
+      - `long_read_seq_report.txt`
 
 - **PLOTS/**: contain all figures saved as PDF
 
 
 ## Changelog
 07/30/24
-  - Intial commit: add analysis codes and data files to generate all figures for publication
+  - Initial commit: add analysis codes and data files to generate all figures for publication
     
 02/18/25
-  - Update code following revision
+  - Update codes following revision
 
 05/20/25
-  - Update code following second revision
+  - Update codes following second revision
+
+06/27/25
+  - Update codes for final submission
