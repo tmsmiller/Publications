@@ -5,7 +5,7 @@
 
 Corresponding author: Anthony Mustoe - anthony.mustoe@bcm.edu
 
-Last updated: 06/27/2025
+Last updated: 07/03/2025
 
 ### Analysis codes (organized by figure)
   - `process_raw_count_to_splicing_efficiency.ipynb`
@@ -19,7 +19,7 @@ Last updated: 06/27/2025
   - `F4_ptreseq_splicing_reanalysis.ipynb`   
   - `F5_cryptic_splicing_mpra.ipynb`        
      
-### Data files
+### `Data/`
   - tape station electropherogram for sequencing library
     - Full PTRE-seq library: `2023-08-04 - 12-17-54-D1000_Electropherogram.csv` 
     - Full PTRE-seq library (alternative library prep method): `2025-03-16 - DNA RNA gel_Electropherogram.csv`
@@ -38,7 +38,23 @@ Last updated: 06/27/2025
       - `sup2_readscount_plasmid.xlsx`: read count for input DNA plasmid library
       - `sup3_readscount_HeLa_total.xlsx`: read count for total RNA
       - `sup4_readscount_HeLa_polysome.xlsx`: read count for polysome-associated RNA
-  - SpliceAI prediction for 3'UTR MPRAs
+  - Nanopore sequencing of PTRE-seq DNA library
+      - `plasmidsaurus_length_distribution.txt`
+      - `long_read_seq_report.txt`
+
+### `splice_prediction/`
+ - Scripts for splicing prediction using spliceAI or Pangolin
+      - Example usage:
+   
+   `python spliceai_script.py ptreseq_mpra_seq.fa ptreseq_full_transcript_prediction_best_sites.txt`
+ - Sequences for 3'UTR MPRAs and other reporter genes
+      - `ptreseq_mpra_seq.fa.gz`
+      - `griesemer_mpra_seq.fa.gz`
+      - `zhao_mpra_seq.fa.gz`
+      - `siegel_mpra_seq.fa.gz`
+      - `MapUTR_full_seq.fa.gz`
+      - `reporter_genes_seq.fa`
+ - SpliceAI prediction for 3'UTR MPRAs
       - `ptreseq_full_transcript_prediction_best_sites.txt`
       - `griesemer_spliceai_full_transcript_prediction_best_sites.txt`
       - `zhao_spliceai_full_transcript_prediction_best_sites.txt`
@@ -56,11 +72,9 @@ Last updated: 06/27/2025
       - `fu_expression_measurements_HEK293.txt` and `fu_expression_measurements_HELA.txt`
   - Pangolin prediction for 3'UTR MPRAs (not shown in manuscript)
       - `ptreseq_pangolin_prediction.txt`
-  - Nanopore sequencing of PTRE-seq DNA library
-      - `plasmidsaurus_length_distribution.txt`
-      - `long_read_seq_report.txt`
 
-- **PLOTS/**: contain all figures saved as PDF
+### `PLOTS/` 
+  - contain all figures saved as PDF
 
 
 ## Changelog
@@ -75,3 +89,6 @@ Last updated: 06/27/2025
 
 06/27/25
   - Update codes for final submission
+
+07/03/25
+  - Add scripts for performing splicing prediction
