@@ -12,30 +12,30 @@ import sys
 def get_correct_category(category, dist_RE_not_cloned, dist_from_cannot_find_barcode, nospacer_dist, dist_pum_chimera):
     if 'missing_forward_primer' in category or 'RT_error' in category:
         return category
+    # check if RE modules were not cloned 
     elif dist_RE_not_cloned == 0:
         return 'RE_not_cloned'
     elif 'cannot_find_barcode' in category:
-        # align the sequence immediately upstream of the blank
-        # if cannot find this sequence (dist >= 3), then blank mispriming
+        # check if there was mis-priming between blank module and downstream homologous sequence
         if int(dist_from_cannot_find_barcode) >= 3 and int(dist_from_cannot_find_barcode) != -1:
             return 'blank_mispriming'
         else:
             return 'unidentifiable_barcode'
+    # check if spacer sequence was not cloned
     elif int(nospacer_dist) <= 3 and int(nospacer_dist) != -1:
         return 'spacer_not_cloned'
     elif 'full_length' in category:
         return 'full_length'
+    # spliced reads (contain AG junction, no more than 20 mismatches in other parts of the sequence)
     elif 'AG_junction_low_mismatch' in category:
         junction = category.split(',')[0].split('-')[1]
         return f'spliced-{junction}'
-    elif 'AG_junction_high_mismatch' in category: # should the high mismatched stuffs be treated separate?
-        #junction = category.split('-')[1]
+    # ambiguous reads (contain AG junction, but more than 20 mismatches in other parts of the sequence)
+    elif 'AG_junction_high_mismatch' in category: 
         return category
     elif 'ambiguous' in category:
-        # align the sequence immediately upstream of the spacer that chimerize with PUM
-        # if cannot find this sequence (dist >= 9), then PUM-spacer chimera
+        # check if there is mis-priming between PRE module and spacer
         if int(dist_pum_chimera) > 4 and int(dist_pum_chimera) != -1 and int(dist_pum_chimera) != 9:
-        #if dist_pum_chimera < 9 and dist_pum_chimera != -1:
             return 'PRE-SPACER_mispriming'
         else:
             return 'ambiguous_deletion'
@@ -65,7 +65,8 @@ def process_report(sample):
 	)
 	# convert edit distance column to numeric data type and fill missing cells with -1
 	df['distance'] = pd.to_numeric(df['distance'], errors = 'coerce').fillna(-1).astype(float)
-	# in cases where sequencing reads are assigned to multiple reporters (see demultiplex_barcode.py script), 
+    
+	# in cases where sequencing reads are assigned to multiple reporters, 
 	# only choose the reporter with the lowest edit distance
 	df = df.loc[df.groupby('read_name')['distance'].idxmin()]
 
@@ -78,9 +79,13 @@ def process_report(sample):
 	df = df.fillna(-1)
 	
 	# get best category
-	df['best_category'] = df.apply(lambda g: get_correct_category(g['category'], g['dist_no_RE'], g['dist_barcode'], g['dist_no_spacer'], g['dist_pum_chim']), axis = 1)
+	df['best_category'] = df.apply(
+        lambda g: get_correct_category(
+            g['category'], g['dist_no_RE'], g['dist_barcode'], g['dist_no_spacer'], g['dist_pum_chim']
+        ), axis = 1
+    )
 
-	#df.to_csv(f'{sample}_with_best_category.txt', sep = '\t', index = False)
+	# remove reads without forward primer
 	df = df[df['best_category']!='missing_forward_primer']
 
 	# group by barcode and count number of reads for each category

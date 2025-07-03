@@ -1,3 +1,5 @@
+# script to check for experimental and sequencing artifacts
+
 import pandas as pd
 import os, sys
 from Bio import SeqIO
@@ -17,11 +19,13 @@ def get_correct_category(category):
 	else:
 		return 'chimeric'
 
-
+# sequence if there was miss priming
 query_cannot_find_barcode = 'GGTACCAAACCCGCTG'
 query_pum_chimera = 'ATGCATCCGACCGTTGATCTTCCGT'
+# sequences if spacer was not cloned
 without_spacer = 'ATGCATCGATATCACTCGAG'
 with_spacer = 'ATGCATCCGACCGTTGATCTTCCGTGTCAGCTCCGACTACTCGAG'
+# sequence if RE modules were not cloned
 RE_not_cloned = 'GCTAGCAGATATCTGGTACC'
 
 sample = sys.argv[1]
